@@ -1,8 +1,10 @@
 pipeline {
   agent any 
   stages {
+
     stage('Initialize') {
       steps {
+	     bat 'set'
          bat 'git tag -l'
          bat 'echo ${BRANCH_NAME}'
          bat 'git checkout ${BRANCH_NAME}'

@@ -23,7 +23,8 @@ pipeline {
                // PROJECT_VERSION = (script: 'git describe --tags', returnStdout: true)
                 // "echo ${PROJECT_VERSION}"
                 PROJECT_NAME = (env.JOB_NAME.split("/"))[0]
-                bat "C:\\sonar-scanner-cli-4.2.0.1873-windows\\sonar-scanner-4.2.0.1873-windows\\bin\\sonar-scanner -Dsonar.projectName=%PROJECT_NAME%"
+				sonar-scanner.bat -D"sonar.projectKey=team_testeng" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=12ca8550f1cf76cdac027d01a2770dfbc4a1235b"
+                bat "C:\\sonar-scanner-cli-4.2.0.1873-windows\\sonar-scanner-4.2.0.1873-windows\\bin\\sonar-scanner.bat -D sonar.projectKey=team_testeng -D sonar.sources=. -D sonar.host.url=http://localhost:9000 -D sonar.login=12ca8550f1cf76cdac027d01a2770dfbc4a1235b"
               }
               // This sleep is added since the quality gate can get hung up. This is a known bug, and the suggested solution is to add a 10s sleep.
               sleep(10)

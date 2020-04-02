@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'test_engineering_jenkins_build_worker'
-    }
-
-  }
+  agent any 
   stages {
     stage('Initialize') {
       steps {

@@ -6,8 +6,8 @@ pipeline {
       steps {
 	     bat 'set'
          bat 'git tag -l'
-         bat 'echo ${BRANCH_NAME}'
-         bat 'git checkout ${BRANCH_NAME}'
+         bat 'echo %BRANCH_NAME%'
+         bat 'git checkout %BRANCH_NAME%'
       }
     }
 
